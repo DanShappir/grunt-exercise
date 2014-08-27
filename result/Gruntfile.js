@@ -12,18 +12,18 @@ module.exports = function(grunt) {
     csslint: {
       src: ['src/**/*.css']
     },
+    tape: {
+      files: ['test/**/*.js']
+    },
     watch: {
       js: {
         files: ['src/**/*.js'],
-        tasks: ['jshint']
+        tasks: ['jshint', 'tape']
       },
       css: {
         files: ['src/**/*.css'],
         tasks: ['csslint']
       }
-    },
-    tape: {
-      files: ['test/**/*.js']
     },
     clean: {
       src: ['target']
