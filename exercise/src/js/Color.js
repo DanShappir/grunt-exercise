@@ -1,5 +1,5 @@
 (function() {
-  'use strict';
+  'use strict';;
 
   // Color.prototype.negativeRgb = function() {
   //   return this.rgb.map(function(c){return 255-c})
