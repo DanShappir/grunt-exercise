@@ -12,13 +12,20 @@ module.exports = function(grunt) {
     csslint: {
       src: ['src/**/*.css']
     },
-    tape: {
-      files: ['test/**/*.js']
+    jasmine_node: {
+      options: {
+          forceExit: true,
+          match: '.',
+          matchall: false,
+          specNameMatcher: 'spec',
+          extensions: 'js'
+      },
+      all: ['test']
     },
     watch: {
       js: {
         files: ['src/**/*.js'],
-        tasks: ['jshint', 'tape']
+        tasks: ['jshint', 'jasmine_node']
       },
       css: {
         files: ['src/**/*.css'],
@@ -93,9 +100,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin')
   grunt.loadNpmTasks('grunt-processhtml')
   grunt.loadNpmTasks('grunt-contrib-connect')
-  grunt.loadNpmTasks('grunt-tape')
+  grunt.loadNpmTasks('grunt-jasmine-node');
 
-  grunt.registerTask('check', ['jshint', 'csslint', 'tape'])
+  grunt.registerTask('check', ['jshint', 'csslint', 'jasmine_node'])
   grunt.registerTask('build', ['clean', 'copy', 'uglify', 'cssmin', 'processhtml'])
 
   grunt.registerTask('default', ['check', 'build'])

@@ -154,52 +154,56 @@ it's because the css file in the project does not pass the csslint check.
 fix the issue and go on.
 
 
-## grunt-tape
-`grunt-tape` is a grunt module that runs tape unit tests.
-We already have a tape test file in the `test` directory,
-so to have grunt run it, first install the grunt tape module,
-and tape itself, which is used from inside the test:
+## grunt-jasmine-node
+
+`grunt-jasmine-node` is a grunt module that runs Jasmine unit tests in Node.
+(and even though we're in a web project, Color.js, which we'll test, was written to work on both web and Node environments).
+We already have a Jasmine test file in the `test` directory,
+so to have grunt run it, install grunt-jasmine-node:
 ```bash
-npm install grunt-tape tape --save-dev
+npm install grunt-jasmine-node --save-dev
 ```
-(See how we installed two things at once? That's OK!)
-
-(If you're working on windows, grunt-tape will work from here: `npm i git+ssh://git@github.com:Bartvds/grunt-tape.git --save-dev`)
-
 
 As before, add the configuration:
 ```js
-tape: {
-  files: ['test/**/*.js']
+jasmine_node: {
+  options: {
+      forceExit: true,
+      match: '.',
+      matchall: false,
+      specNameMatcher: 'spec',
+      extensions: 'js'
+  },
+  all: ['test']
 }
 ```
 and get Grunt to load it:
 ```js
-grunt.loadNpmTasks('grunt-tape')
+grunt.loadNpmTasks('grunt-jasmine-node')
 ```
 
-Now you can run `grunt tape` and see the tests being ran.
+Now you can run `grunt jasmine_node` and see the tests being ran.
 
 
 ## Tasks grouping and aliasing
 
-Now, after we've defined three tasks, jshint, csslint, and tape,
+Now, after we've defined three tasks, jshint, csslint, and jasmine_node,
 we know that we can run them one by one:
 ```bash
 grunt jshint
 grunt csslint
-grunt tape
+grunt jasmine_node
 ```
 We can also one them with a single command:
 ```bash
-grunt jshint csslint tape
+grunt jshint csslint jasmine_node
 ```
 and that might be good enough for now,
 but when we'll have dozens of tasks, that will become messy.
 There is an easy solution for that -
 just add this line after the calls to `loadNpmTasks`:
 ```js
-grunt.registerTask('check', ['jshint', 'csslint', 'tape'])
+grunt.registerTask('check', ['jshint', 'csslint', 'jasmine_node'])
 ```
 This simply means - *register a new task called "check", which includes these three tasks in order*.
 
@@ -229,7 +233,7 @@ Configure:
 watch: {
   js: {
     files: ['src/**/*.js'],
-    tasks: ['jshint']
+    tasks: ['jshint', 'jasmine_node']
   },
   css: {
     files: ['src/**/*.css'],
@@ -304,7 +308,7 @@ Also, the `connect` task was configured to be able to run both the dev version a
 
 We've already seen the simple use of `grunt.registerTask` in:
 ```js
-grunt.registerTask('check', ['jshint', 'csslint', 'tape'])
+grunt.registerTask('check', ['jshint', 'csslint', 'jasmine_node'])
 ```
 but we can also create a whole new task by passing
 a function as the second arguments.
