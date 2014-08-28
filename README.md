@@ -29,18 +29,29 @@ grunt-cli v0.1.13
 ```
 
 ## The project
+
 Clone this repository, or better yet,
 fork it first so that you could save your progress.
 
-The `exercise` directory is the root of the project,
-so all of the commands we're gonna run should be ran there,
-and all of the paths we're gonna use are relative to it.
-Open it and see what's there:
-* `src` - is the public directory of our website. You can open `index.htm` to see the site.
-* `test` - includes a test file for one of the Javascript classes used in the site.
-* `.gitignore` - includes a few entries we'll need as we'll go along.
-* `package.json` - is where we'll have our grunt dependencies listed. Currently empty.
-* `Gruntfile.js` - is a bare Grunt's configuration file, which is where we'll do most of our work.
+What's inside?
+```bash
+├── README.md        # This file
+├── exercise         # The directory we'll be working in
+│   ├── Gruntfile.js # An empty Grunt configuration file, which is where we'll do most of our work.
+│   ├── package.json # An empty package.json file, in which grunt dependencies will be listed.
+│   ├── src          # The project's source code
+│   └── test         # The project's tests
+└── result           # An example of the complete exercise, with even extra tasks.
+```
+Go into the `exercise` directory,
+which is the root of our project:
+```bash
+cd grunt-exercise/exercise
+```
+
+**All of the commands we're gonna run should be ran there,
+and all of the paths we're gonna use are relative to it.**
+
 
 ## Grunt and local project installations
 We're already installed the grunt-cli tool,
@@ -312,9 +323,7 @@ grunt.registerTask('check', ['jshint', 'csslint', 'jasmine_node'])
 ```
 but we can also create a whole new task by passing
 a function as the second arguments.
-Here are a few examples.
-Copy them into your Gruntfile
-and try to figure out how to write one of your own.
+Here are a few examples:
 
 ```js
 grunt.registerTask('hello', function() {
@@ -348,9 +357,15 @@ grunt.registerTask('weather', function() {
   })
 })
 ```
-Eventually, if you have more than one costum task,
-It might be wise to move those tasks to another file and use [grunt.task.loadtasks](http://gruntjs.com/api/grunt.task#grunt.task.loadtasks)
 
+Copy them into your Gruntfile,
+edit them, or write ones of your own.
+The possibilities are endless!
+
+
+## Points
+* Important things that weren't covered: multiTasks, loading tasks from external files, command line options, grunt.config options, the Grunt API, writing Grunt full modules, and more.
+* A lot of useful grunt modules can be found [in GruntJS.com](http://gruntjs.com/plugins). Notice that a lot of them are written by the Grunt team itself.
 
 ## Further readings
 
@@ -358,12 +373,6 @@ It might be wise to move those tasks to another file and use [grunt.task.loadtas
 * http://gruntjs.com/getting-started
 * http://gruntjs.com/api/grunt
 * http://gruntjs.com/api/inside-tasks
-
-
-
-
-
-
 
 
 
