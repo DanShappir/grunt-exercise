@@ -65,6 +65,7 @@ module.exports = function(grunt) {
     connect: {
       dev: {
         options: {
+          hostname: 'localhost',
           useAvailablePort: true,
           base: 'src',
           open: true,
@@ -73,6 +74,7 @@ module.exports = function(grunt) {
       },
       prod: {
         options: {
+          hostname: 'localhost',
           useAvailablePort: true,
           base: 'target',
           open: true,

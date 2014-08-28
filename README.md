@@ -259,6 +259,7 @@ Configure:
 connect: {
   server: {
     options: {
+      hostname: 'localhost',
       useAvailablePort: true,
       base: 'src',
       open: true,
