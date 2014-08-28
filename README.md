@@ -5,7 +5,9 @@ Follow this guide to take the simple website in the exercise directory,
 validate it, run its tests, and create a production version of it with
 nothing but Grunt and Grunt task modules.
 
-## Setup
+## Global setup
+(...which can be skipped if your machine is already set up with Grunt)
+
 Grunt is based on [NPM](https://www.npmjs.org/),
 meaning we're gonna install Grunt and Grunt tasks using NPM,
 so before everything, we'll need NodeJS and Grunt.
@@ -27,14 +29,17 @@ grunt-cli v0.1.13
 ```
 
 ## The project
+Clone this repository, or better yet,
+fork it first so that you could save your progress.
+
 The `exercise` directory is the root of the project,
 so all of the commands we're gonna run should be ran there,
 and all of the paths we're gonna use are relative to it.
 Open it and see what's there:
-* `src` - is the public directory of our website. You can run `index.htm` to see the site.
-* `test` - includes a test for one of the Javascript classes used in the site.
+* `src` - is the public directory of our website. You can open `index.htm` to see the site.
+* `test` - includes a test file for one of the Javascript classes used in the site.
 * `.gitignore` - includes a few entries we'll need as we'll go along.
-* `package.json` - is where we'll have our grunt dependencies listed.
+* `package.json` - is where we'll have our grunt dependencies listed. Currently empty.
 * `Gruntfile.js` - is a bare Grunt's configuration file, which is where we'll do most of our work.
 
 ## Grunt and local project installations
@@ -47,9 +52,11 @@ npm install grunt --save-dev
 ```
 This will do two things:
 It will add the grunt module to the `node_modules` directory,
+(which it will create if it doesn't yet exist),
 and since we've used `--save-dev`,
 it will add grunt to our empty `package.json` file
 under `devDependencies`.
+Look into the `package.json` file to see what's added.
 
 Notice that `node_modules` is in the `.gitignore` file,
 and that `package.json` is not. In the future,
@@ -60,7 +67,7 @@ If you'd run `grunt`,
 Grunt will tell you that there isn't a default task,
 and if you'd run `grunt --help`,
 you'd see that there are no tasks under *Available tasks*,
-so let's start adding tasks...
+so let's start adding some...
 
 ## grunt-contrib-jshint
 
@@ -118,10 +125,10 @@ and we should be able to run
 grunt jshint
 ```
 and see that we have a jshint error!
-jshint will tell you where and what is the error,
+jshint will tell you where and what the error is,
 so it should be easy to fix.
 Once it's fixed, run `grunt jshint` and see that Grunt passes.
-Them move on to add the next Grunt task.
+Then move on to add the next Grunt task.
 
 
 ## grunt-contrib-csslint
@@ -149,13 +156,16 @@ fix the issue and go on.
 
 ## grunt-tape
 `grunt-tape` is a grunt module that runs tape unit tests.
-We already have a tape test in the `test` directory,
-so to have grunt run it first install the grunt tape module,
+We already have a tape test file in the `test` directory,
+so to have grunt run it, first install the grunt tape module,
 and tape itself, which is used from inside the test:
 ```bash
 npm install grunt-tape tape --save-dev
 ```
-(See how we installed two things at once? that's OK!)
+(See how we installed two things at once? That's OK!)
+
+(If you're working on windows, grunt-tape will work from here: `npm i git+ssh://git@github.com:Bartvds/grunt-tape.git --save-dev`)
+
 
 As before, add the configuration:
 ```js
@@ -239,10 +249,8 @@ and `csslint` whenever a file that fits `src/**/*.css` does.
 
 Now, if you'll run `grunt watch`,
 you'll see that unlike other tasks, it does not end.
-It waits for the next change, output the results,
-and goes on waiting.
-You'd probably want to keep it on,
-and open another terminal window for the rest of the work.
+It waits for the next change, output the results, and goes on waiting.
+Edit some css and js files to see the watch in action.
 
 
 ## grunt-contrib-connect
@@ -290,7 +298,7 @@ into the `target` directory of the project:
 * grunt-processhtml - Processes HTML files to load the minifies versions of js and css files
 * grunt-contrib-copy - Copies files that do not need to be minifies
 
-Also, the `connect` task was configures to be able to run both the dev version and the production version.
+Also, the `connect` task was configured to be able to run both the dev version and the production version.
 
 ## Costum task
 
@@ -305,7 +313,7 @@ Copy them into your Gruntfile
 and try to figure out how to write one of your own.
 
 ```js
-grunt.registerTask('Hello', function() {
+grunt.registerTask('hello', function() {
   grunt.log.writeln('Hello!!!')
 })
 
