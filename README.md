@@ -18,7 +18,7 @@ Once you have Node, you'll have NPM, and you could install grunt with
 ```bash
 npm install --global grunt
 ```
-Verify that you're OK by checking everything is installed:
+Verify that you're OK by checking that everything is installed:
 ```bash
 $ node -v
 v0.10.29
@@ -33,15 +33,15 @@ grunt-cli v0.1.13
 Clone this repository, or better yet,
 fork it first so that you could save your progress.
 
-What's inside?
+What's inside? (And matters)
 ```bash
 ├── README.md        # This file
 ├── exercise         # The directory we'll be working in
-│   ├── Gruntfile.js # An empty Grunt configuration file, which is where we'll do most of our work.
-│   ├── package.json # An empty package.json file, in which grunt dependencies will be listed.
+│   ├── Gruntfile.js # An empty Grunt configuration file, which is where we'll do most of our work
+│   ├── package.json # An empty package.json file, in which grunt dependencies will be listed
 │   ├── src          # The project's source code
 │   └── test         # The project's tests
-└── result           # An example of the complete exercise, with even extra tasks.
+└── result           # An example of the complete exercise, with extra tasks
 ```
 Go into the `exercise` directory,
 which is the root of our project:
@@ -364,8 +364,10 @@ The possibilities are endless!
 
 
 ## Points
+
 * Important things that weren't covered: multiTasks, loading tasks from external files, command line options, grunt.config options, the Grunt API, writing Grunt full modules, and more.
 * A lot of useful grunt modules can be found [in GruntJS.com](http://gruntjs.com/plugins). Notice that a lot of them are written by the Grunt team itself.
+
 
 ## Further readings
 
@@ -375,7 +377,10 @@ The possibilities are endless!
 * http://gruntjs.com/api/inside-tasks
 
 
+## Feedback
 
+* If you have found out any mistakes or problems in this tutorial, please [open an issue](https://github.com/danyshaanan/grunt-exercise/issues).
+* Any other suggestions are also welcome. My mail is available at my Githup profile page.
 
 
 <!--  -->
