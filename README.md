@@ -380,7 +380,7 @@ The possibilities are endless!
 ## Feedback
 
 * If you have found out any mistakes or problems in this tutorial, please [open an issue](https://github.com/danyshaanan/grunt-exercise/issues).
-* Any other suggestions are also welcome. My mail is available at my Githup profile page.
+* Any other suggestions are also welcome. My mail is available at my Github [profile page](https://github.com/danyshaanan).
 
 
 <!--  -->
