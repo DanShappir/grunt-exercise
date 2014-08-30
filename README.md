@@ -1,7 +1,7 @@
 # Grunt!
 
 This is an exercise for beginners in [Grunt](http://gruntjs.com/).
-Follow this guide to take the simple website in the exercise directory,
+Follow this guide to take the simple website that is in the `src` directory,
 validate it, run its tests, and create a production version of it with
 nothing but Grunt and Grunt task modules.
 
@@ -35,23 +35,12 @@ fork it first so that you could save your progress.
 
 What's inside? (And matters)
 ```bash
-├── README.md        # This file
-├── exercise         # The directory we'll be working in
-│   ├── Gruntfile.js # An empty Grunt configuration file, which is where we'll do most of our work
-│   ├── package.json # An empty package.json file, in which grunt dependencies will be listed
-│   ├── src          # The project's source code
-│   └── test         # The project's tests
-└── result           # An example of the complete exercise, with extra tasks
+├── README.md    # This file
+├── Gruntfile.js # An empty Grunt configuration file, which is where we'll do most of our work
+├── package.json # An empty package.json file, in which grunt dependencies will be listed
+├── src          # The project's source code
+└── test         # The project's tests
 ```
-Go into the `exercise` directory,
-which is the root of our project:
-```bash
-cd grunt-exercise/exercise
-```
-
-**All of the commands we're gonna run should be ran there,
-and all of the paths we're gonna use are relative to it.**
-
 
 ## Grunt and local project installations
 We're already installed the grunt-cli tool,
@@ -301,7 +290,7 @@ in the `src` directory, and open it in the browser.
 
 
 ## Other tasks
-If you'll peek at the `results` directory,
+If you'll peek at the `result` branch,
 you'll see a project with everything we've done here,
 and a few other tasks,
 relating to building a production version of the site,
