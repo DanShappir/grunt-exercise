@@ -14,9 +14,9 @@ so before everything, we'll need NodeJS and Grunt.
 Install node with `brew install node` on OSX,
 or [from NodeJS.org](http://nodejs.org/download/) on other systems.
 
-Once you have Node, you'll have NPM, and you could install grunt with
+Once you have Node, you'll have NPM, and you could install the Grunt commnad-line interface with
 ```bash
-npm install --global grunt
+npm install --global grunt-cli
 ```
 Verify that you're OK by checking that everything is installed:
 ```bash
@@ -304,7 +304,7 @@ into the `target` directory of the project:
 
 Also, the `connect` task was configured to be able to run both the dev version and the production version.
 
-## Costum task
+## Custom task
 
 We've already seen the simple use of `grunt.registerTask` in:
 ```js
